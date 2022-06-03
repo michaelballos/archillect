@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@types/puppeteer": "^5.4.6",
+    "puppeteer": "^14.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-typescript": "^7.17.12",
+    "babel-jest": "^28.1.0",
+    "jest": "^28.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
