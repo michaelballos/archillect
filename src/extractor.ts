@@ -1,18 +1,18 @@
 const puppeteer = require('puppeteer');
 
 module.exports = (async () => {
-  console.log('launching browser...');
-  const browser = await puppeteer.launch({headless: false});
-  const page = await browser.newPage();
   try {
+    console.log('launching browser...');
+    const browser = await puppeteer.launch({headless: false});
+    const page = await browser.newPage();
     await page.goto('https://archillect.com/archive/');
-    const loaded = await page.waitForSelector('body');
-    console.log('loaded successfully');
-    return loaded;
+    await page.click('img.thumb[src]').then(async (element) => {
+      const src = await element.getAttribute('src');
+      console.log('LINK:',src);
+    }
+    );
+    await browser.close();
   } catch (e) {
     console.log(e, 'Page did not load');
   }
-  const imageLinks = await page.$$('img[src]');
-  console.log('LINKS FOUND:', imageLinks);
-  await browser.close();
 })();

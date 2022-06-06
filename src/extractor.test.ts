@@ -8,20 +8,20 @@ describe('extractor', () => {
     page = await browser.newPage();
     await page.goto('https://archillect.com/archive/');
     const loaded = await page.waitForSelector('img');
-    try {
       expect(loaded).not.toBeUndefined();
       console.log('loaded successfully');
-    } catch (e) {
-      console.log(e, 'Page did not load');
       await browser.close();
-    }
-  }, 30000);
+  });
 
   it('should extract the image src links', async () => {
-    console.log('Searching for images...');
-    const imageLinks = await page.$$('img');
-    console.log('LINKS:', imageLinks);
-    expect(1).toBe(1);
-    await browser.close();
-  }, 30000);
+    console.log('finding images...');
+    const imageLinks = await page.evaluate(() => {
+        const links = Array.from(page.$$('img.thumb[src]')
+        .map((element) => {
+          return element.getAttribute('src');
+        }));
+        expect(links).toBe(links.length > 0);
+    });
+      expect(imageLinks).not.toBeUndefined();
+  });
 });
