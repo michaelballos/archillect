@@ -27,7 +27,7 @@ module.exports = (async () => {
       await page.click('a[id="imgolder"]');
       await page.waitForSelector('img[id="ii"]');
       } catch (e) {
-        console.log('no more images');
+        console.log('failed to navigate to next image');
       }
     }
     console.log('LINKS SCRAPED:', imageLinks);
