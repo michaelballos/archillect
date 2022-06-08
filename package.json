@@ -19,6 +19,6 @@
   },
   "scripts": {
     "start": "node src/imageExtractor.ts",
-    "test": "jest"
+    "test": "jest --watch"
   }
 }
