@@ -1,6 +1,6 @@
 # Archillect
 
-This bot uses puppeteer to scrape images from [Archillect](https://archillect.com/).
+This bot uses [Puppeteer](https://pptr.dev/) to scrape images from [Archillect](https://archillect.com/) and can be used to integrate with other applications
 
 - Possibly might integrate with a chrome extension that updates the background on tab open.
 
